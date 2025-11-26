@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arancia.bot | ლოკაციის არჩევა</title>
+    <style>
+        /* სტილები (CSS) */
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            text-align: center; 
+            background-color: #FFF3E0; 
+            padding: 50px 20px; 
+            color: #333;
+        }
+        .container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background-color: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            color: #FF7043; 
+            margin-bottom: 25px; 
+            font-size: 2em;
+        }
+        label { 
+            display: block; 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+            text-align: left; 
+        }
+        select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 25px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            font-size: 16px;
+        }
+        .telegram-btn { 
+            background-color: #0088CC; /* Telegram-ის ლურჯი */
+            color: white; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            display: inline-block; 
+            font-size: 18px; 
+            font-weight: bold;
+            transition: background-color 0.3s; 
+        }
+        .telegram-btn:hover { 
+            background-color: #0077b3; 
+        }
+        #info-text {
+            margin-top: 25px; 
+            color: #E65100;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ აირჩიე მიწოდების ქალაქი</h1>
+        
+        <label for="city">ქალაქი/რაიონი:</label>
+        <select id="city">
+            <option value="Tbilisi">თბილისი</option>
+            <option value="Batumi">ბათუმი</option>
+            <option value="Kutaisi">ქუთაისი</option>
+            <option value="Rustavi">რუსთავი</option>
+        </select>
+        
+        <button id="buy-btn" class="telegram-btn">👉 გაგრძელება Telegram-ში</button>
+        <p id="info-text">თქვენ ირჩევთ: <span id="selected-product">...</span></p>
+    </div>
+
+    <script>
+        // JavaScript კოდი
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product'); // პროდუქტის ტიპი ('classic' ან 'premium')
+        
+        // პროდუქტის დასახელების ჩვენება
+        const productText = product === 'classic' ? 'კლასიკურ არანჩას' : (product === 'premium' ? 'პრემიუმ არანჩას' : 'პროდუქტს');
+        document.getElementById('selected-product').textContent = productText;
+
+        // ღილაკზე დაჭერის ფუნქცია
+        document.getElementById('buy-btn').addEventListener('click', function() {
+            const selectedCity = document.getElementById('city').value;
+            
+            // !!! აქ ჩაწერეთ თქვენი Telegram ბოტის ზუსტი სახელი !!!
+            const botUsername = "aranciabeginbot"; 
+            
+            // ბოტის ბმულის შექმნა. პარამეტრი `start` გამოიყენება შეკვეთის დასაწყებად.
+            // მონაცემები გადაგვაქვს: product_city (მაგ: classic_Tbilisi)
+            const telegramLink = `https://t.me/${botUsername}?start=${product}_${selectedCity}`;
+            
+            // გადამისამართება
+            window.location.href = telegramLink;
+        });
+    </script>
+</body>
+</html>

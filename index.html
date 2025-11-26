@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arancia.bot | აირჩიე ფორთოხალი</title>
+    <style>
+        /* სტილები (CSS) */
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            text-align: center; 
+            background-color: #FFF3E0; /* ღია ფორთოხლისფერი ფონი */
+            padding: 20px; 
+            color: #333;
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 20px;
+        }
+        h1 { 
+            color: #FF7043; /* ღრმა ფორთოხლისფერი */
+            margin-bottom: 30px; 
+            font-size: 2.5em;
+        }
+        .product-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product-card { 
+            border: 2px solid #FFAB91; /* ნარინჯისფერი ჩარჩო */
+            padding: 25px; 
+            margin: 15px; 
+            background-color: white; 
+            border-radius: 12px; 
+            width: 45%; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08); 
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-card h3 { 
+            color: #E65100; 
+            margin-top: 0;
+        }
+        .select-btn { 
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            display: inline-block; 
+            margin-top: 20px; 
+            font-weight: bold;
+            transition: background-color 0.3s; 
+        }
+        .select-btn:hover { 
+            background-color: #43A047; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍊 კეთილი იყოს თქვენი მობრძანება Arancia.bot-ზე! 🍊</h1>
+        <p>გთხოვთ, აირჩიოთ თქვენთვის სასურველი ფორთოხლის ტიპი, რათა შეკვეთა გააგრძელოთ.</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>🧡 კლასიკური არანჩა</h3>
+                <p>წვნიანი, ტკბილი, მზიანი არომატით. იდეალურია ყოველდღიური მოხმარებისთვის და წვენებისთვის.</p>
+                <a href="location.html?product=classic" class="select-btn">აირჩიე ეს</a>
+            </div>
+            
+            <div class="product-card">
+                <h3>👑 პრემიუმ არანჩა</h3>
+                <p>დიდი ზომის, უთესლო და თხელკანიანი. საუკეთესო ხარისხი სალათებისა და დესერტებისთვის.</p>
+                <a href="location.html?product=premium" class="select-btn">აირჩიე ეს</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
